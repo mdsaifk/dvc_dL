@@ -1,32 +1,31 @@
+from turtle import color
 from src.utils.all_utils import read_yaml,create_directory
 import argparse
 import pandas as pd
+import shutil
+import tqdm
 import os
 
 
-def get_data(config_path):
-    config = read_yaml(config_path)
-    url_of_data = config['data_source']
-    print(url_of_data)
-
-    df = pd.read_csv(url_of_data,sep=';')
-    print(df.head)
-
 # save the data in local directory
 
-    artifacts_dir = config['artifacts']['artifacts_dir']
-    raw_local_dir = config['artifacts']['raw_local_dir']
-    raw_local_file = config['artifacts']['raw_local_file']
+def copy_file(source_download_dir,local_data_dir):
+    list_of_files = os.listdir(source_download_dir)
+    N = len(list_of_files)
+    for file in tqdm(list_of_files,total=N,desc =f'copying file from {source_download_dir} to {local_data_dir}',colour = "green"):
+        src = os.path.join(source_download_dir,file)
+        dest = os.path.join(local_data_dir,file)
+        shutil.copy(src,dest)
+def get_data(config_path):
+    config = read_yaml(config_path)
 
-    raw_local_dir_path = os.path.join(artifacts_dir,raw_local_dir)
-    # print(raw_local_dir_path)
-    create_directory(dirs = [raw_local_dir_path])
+    source_download_dir = config["source_download_dir"]
+    local_data_dir    = config["local_data_dir"]
 
-    raw_local_file_path = os.path.join(raw_local_dir_path,raw_local_file)
-    print(raw_local_file_path)
+    for source_download_dir ,local_data_dir in tqdm(zip(source_download_dir,local_data_dir),total=2,desc = "list of folder",colour = "red"):
+        create_directory([local_data_dir])
+        copy_file(source_download_dir,local_data_dir)
 
-    df.to_csv(raw_local_file_path,sep=',', index= False)
-    
 
 if __name__ == '__main__':
     args = argparse.ArgumentParser()
