@@ -1,0 +1,25 @@
+Metadata-Version: 2.1
+Name: src
+Version: 0.0.1
+Summary: A small package for dvc DL pipleine demo
+Home-page: https://github.com/mdsaifk/dvc_dL.git
+Author: mdsaifk
+Author-email: mdsaifkhan200@gmail.com
+License: GNU
+Platform: UNKNOWN
+Requires-Python: >=3.7
+
+# DVC Deep learning Demo
+
+''' bash
+   conda create --prefix ./env python=3.7 -y
+   source activate ./env 
+
+'''
+
+'''bash
+   mkdir -p src
+   
+   touch src/__init__.py src/utils/__init__.py src/utils/all_utils.py src/stage_01_load_and_save.py
+'''
+

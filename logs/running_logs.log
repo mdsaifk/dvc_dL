@@ -1,0 +1,17 @@
+[2022-08-13 23:26:26,880 :INFO]:>>>>> stage one started
+[2022-08-13 23:26:26,888 :INFO]:yaml files: {path_of_yaml} successfully loaded
+[2022-08-13 23:26:26,909 :INFO]:reports are saved at data/dog
+[2022-08-13 23:26:27,934 :INFO]:reports are saved at data/cat
+[2022-08-13 23:26:28,926 :INFO]:stage one completed! all the data are saved in local >>>>>
+
+[2022-08-13 23:36:36,107 :ERROR]:name 'print_fn' is not defined
+Traceback (most recent call last):
+  File "stage_01_load_and_save.py", line 43, in <module>
+    print_fn("ssa")
+NameError: name 'print_fn' is not defined
+[2022-08-13 23:43:52,403 :INFO]:>>>>> stage one started
+[2022-08-13 23:43:52,403 :INFO]:yaml files: {path_of_yaml} successfully loaded
+[2022-08-13 23:43:52,432 :INFO]:reports are saved at data/dog
+[2022-08-13 23:43:53,593 :INFO]:reports are saved at data/cat
+[2022-08-13 23:43:54,341 :INFO]:stage one completed! all the data are saved in local >>>>>
+

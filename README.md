@@ -11,3 +11,5 @@
    
    touch src/__init__.py src/utils/__init__.py src/utils/all_utils.py src/stage_01_load_and_save.py
 '''
+
+## install src
